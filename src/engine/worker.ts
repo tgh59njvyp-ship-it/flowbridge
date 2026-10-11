@@ -1,0 +1,1 @@
+import {processBlock} from '../blocks/processors'; self.onmessage=async(e)=>{const {id,kind,input,data}=e.data;try{const result=await processBlock(kind,input,data);self.postMessage({id,ok:true,result});}catch(error){self.postMessage({id,ok:false,error:error instanceof Error?error.message:'error'});}};
